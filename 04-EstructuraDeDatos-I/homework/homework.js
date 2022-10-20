@@ -12,12 +12,26 @@ function nFactorial(n) {
 // EJERCICIO 2
 function nFibonacci(n) {
    // 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144,…
-   return n <= 1 ? n : nFibonacci(n - 1) + nFibonacci(n - 2);
+   if (n < 0) return null;
+   if (n === 0) return n;
+   if (n === 1) return n;
+   return nFibonacci(n - 1) + nFibonacci(n - 2);
    
 }
 
 // EJERCICIO 3
-function Queue() {}
+function Queue() { //Queue 
+   this.queue = [];
+}
+Queue.prototype.enqueue = function(element) { //enqueue agrega datos
+   this.queue.push(element); // push mete un elemento al final del array
+};
+Queue.prototype.dequeue = function() {
+   return this.queue.shift(); //shift remueve el primer elemento
+};
+Queue.prototype.size = function() {
+   return this.queue.length;
+};
 
 // No modifiquen nada debajo de esta linea
 // --------------------------------
